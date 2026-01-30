@@ -34,6 +34,10 @@ export const initialState = {
         { id: uuidv4(), category: 'Frameworks', items: 'React, Next.js, Node.js, Express' },
         { id: uuidv4(), category: 'Tools', items: 'Git, Docker, AWS, Firebase' },
     ],
+    languages: [
+        { id: uuidv4(), language: 'English', level: 'Native' },
+        { id: uuidv4(), language: 'Spanish', level: 'Native' },
+    ],
 };
 
 export const cvReducer = (state, action) => {
