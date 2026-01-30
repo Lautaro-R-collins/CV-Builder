@@ -2,7 +2,7 @@ import { useCV } from '../../context/CVContext';
 
 const CV = () => {
   const { cvData } = useCV();
-  const { generalInfo, education, experience, skills } = cvData;
+  const { generalInfo, education, experience, skills, languages } = cvData;
 
 
 
@@ -73,6 +73,20 @@ const CV = () => {
               <div key={skill.id} className="flex">
                 <span className="font-bold min-w-[120px]">{skill.category}:</span>
                 <span>{skill.items}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+      {/* Lenguages */}
+      {languages.length > 0 && (
+        <section>
+          <h2 className="text-base font-bold uppercase border-b border-black mb-3">Languages</h2>
+          <div className="grid grid-cols-1 gap-1">
+            {languages.map((language) => (
+              <div key={language.id} className="flex">
+                <span className="font-bold min-w-[120px]">{language.language}:</span>
+                <span>{language.level}</span>
               </div>
             ))}
           </div>
