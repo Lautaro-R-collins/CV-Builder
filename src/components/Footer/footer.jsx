@@ -2,8 +2,8 @@ import { Github } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="mt-auto flex justify-center items-center gap-2 py-5">
-      <p className="text-gray-500 text-xl">
+    <footer className="mt-auto flex justify-center items-center gap-2 pt-15">
+      <p className="text-gray-500 text-sm">
         Developed by Lautaro Rodriguez Collins
       </p>
 

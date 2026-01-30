@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import SettingsModal from './SettingsModal';
 import InfoModal from './InfoModal';
+import Footer from '../Footer/footer';
 
 const SectionTitle = ({ icon, title, section, activeSection, toggleSection }) => {
   const Icon = icon;
@@ -424,6 +425,7 @@ const SideBar = () => {
             </div>
            )}
         </div>
+        <Footer />
       </div>
     </div>
   );

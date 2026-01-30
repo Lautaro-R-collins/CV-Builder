@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import CV from './components/CV/CV';
 import SideBar from './components/CV/SideBar';
 import { CVProvider } from './context/CVContext';
-import Footer from './components/Footer/footer';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
@@ -43,7 +42,6 @@ function App() {
            <div className="w-[210mm] min-h-[297mm] bg-white shadow-2xl mb-10 print:shadow-none print:m-0 origin-top transform scale-[0.8] lg:scale-[0.85] xl:scale-100 transition-transform duration-300">
               <div ref={componentRef} className="w-full h-full">
                 <CV />
-                <Footer />
               </div>
            </div>
         </main>
