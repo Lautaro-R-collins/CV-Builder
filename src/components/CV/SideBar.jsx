@@ -16,7 +16,7 @@ const SectionTitle = ({ icon, title, section, activeSection, toggleSection }) =>
   return (
     <button
       onClick={() => toggleSection(section)}
-      className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 border-b border-gray-200 transition-colors duration-200"
+      className="w-full cursor-pointer flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 border-b border-gray-200 transition-colors duration-200"
     >
       <div className="flex items-center gap-3">
         <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
@@ -65,7 +65,7 @@ const SideBar = () => {
   return (
     <div className="flex flex-col h-full bg-white font-inter">
       <div className="p-6 border-b border-gray-200">
-        <h2 className="text-2xl font-bold text-gray-800">Editor</h2>
+        <h2 className="text-2xl font-bold text-gray-800">CV Builder</h2>
         <p className="text-sm text-gray-500 mt-1">Customize your resume sections</p>
       </div>
 
@@ -137,7 +137,7 @@ const SideBar = () => {
                 <div key={edu.id} className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200 relative group">
                    <button
                     onClick={() => deleteItem('education', edu.id)}
-                    className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 rounded-md hover:bg-red-50 transition-colors"
+                    className="absolute cursor-pointer top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 rounded-md hover:bg-red-50 transition-colors"
                   >
                     <Trash2 size={16} />
                   </button>
@@ -176,7 +176,7 @@ const SideBar = () => {
               ))}
               <button
                 onClick={() => addItem('education', { school: '', degree: '', dates: '', location: '', description: '' })}
-                className="w-full py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
+                className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
                 <Plus size={18} /> Add Education
               </button>
@@ -231,14 +231,14 @@ const SideBar = () => {
                     <textarea
                       value={exp.description}
                       onChange={(e) => handleChange(e, 'description', 'experience', exp.id)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200 h-24 resize-none"
+                      className="w-full cursor-pointer px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200 h-24 resize-none"
                     />
                   </div>
                 </div>
               ))}
               <button
                 onClick={() => addItem('experience', { company: '', role: '', dates: '', location: '', description: '' })}
-                className="w-full py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
+                className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
                 <Plus size={18} /> Add Experience
               </button>
@@ -261,7 +261,7 @@ const SideBar = () => {
                 <div key={skill.id} className="mb-4 p-4 bg-gray-50 rounded-lg border border-gray-200 relative flex flex-col gap-3">
                    <button
                     onClick={() => deleteItem('skills', skill.id)}
-                    className="absolute top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 rounded-md hover:bg-red-50 transition-colors"
+                    className="absolute cursor-pointer top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 rounded-md hover:bg-red-50 transition-colors"
                   >
                     <Trash2 size={16} />
                   </button>
@@ -283,7 +283,7 @@ const SideBar = () => {
               ))}
                <button
                 onClick={() => addItem('skills', { category: '', items: '' })}
-                className="w-full py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
+                className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
                 <Plus size={18} /> Add Skill Group
               </button>
