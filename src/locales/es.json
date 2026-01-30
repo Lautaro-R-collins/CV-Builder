@@ -1,0 +1,43 @@
+{
+    "common": {
+        "downloadPdf": "Descargar PDF",
+        "language": "Idioma",
+        "english": "Inglés",
+        "spanish": "Español",
+        "selectLanguage": "Seleccionar Idioma"
+    },
+    "sidebar": {
+        "personalInfo": "Información Personal",
+        "education": "Educación",
+        "experience": "Experiencia Laboral",
+        "skills": "Habilidades",
+        "languages": "Idiomas",
+        "addEducation": "Añadir Educación",
+        "addExperience": "Añadir Experiencia",
+        "addSkill": "Añadir Habilidad",
+        "addLanguage": "Añadir Idioma",
+        "fullName": "Nombre Completo",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "linkedin": "LinkedIn",
+        "website": "Sitio Web",
+        "school": "Escuela / Universidad",
+        "degree": "Título / Certificación",
+        "location": "Ubicación",
+        "dates": "Fechas (ej. Ago 2018 - May 2022)",
+        "description": "Descripción",
+        "company": "Empresa",
+        "role": "Cargo / Puesto",
+        "category": "Categoría (ej. Lenguajes)",
+        "items": "Ítems (separados por coma)",
+        "languageName": "Idioma",
+        "level": "Nivel (ej. Nativo, B2)"
+    },
+    "cv": {
+        "education": "Educación",
+        "experience": "Experiencia",
+        "skills": "Habilidades",
+        "languages": "Idiomas"
+    }
+}
