@@ -27,7 +27,7 @@ function App() {
            <div className="fixed top-8 right-8 flex gap-4 z-20 print:hidden">
               <button
                 onClick={() => handlePrint()}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all transform hover:scale-105 font-medium"
+                className="flex cursor-pointer items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all transform hover:scale-105 font-medium"
               >
                 <Download size={20} />
                 Download PDF
