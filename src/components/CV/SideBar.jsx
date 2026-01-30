@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCV } from '../../context/CVContext';
 import {
   User,
@@ -47,6 +48,7 @@ const InputGroup = ({ label, value, onChange, placeholder, type = 'text', classN
 );
 
 const SideBar = () => {
+  const { t } = useTranslation();
   const { cvData, updateGeneralInfo, addItem, updateItem, deleteItem } = useCV();
   const [activeSection, setActiveSection] = useState('general');
 
@@ -74,7 +76,7 @@ const SideBar = () => {
         <div className="border-b border-gray-200">
           <SectionTitle
             icon={User}
-            title="Personal Information"
+            title={t('sidebar.personalInfo')}
             section="general"
             activeSection={activeSection}
             toggleSection={toggleSection}
@@ -82,38 +84,38 @@ const SideBar = () => {
           {activeSection === 'general' && (
             <div className="p-6 bg-white animate-in slide-in-from-top-2 duration-200">
               <InputGroup
-                label="Full Name"
+                label={t('sidebar.fullName')}
                 value={cvData.generalInfo.fullName}
                 onChange={(e) => handleChange(e, 'fullName', 'generalInfo')}
                 placeholder="e.g. John Doe"
               />
               <InputGroup
-                label="Email"
+                label={t('sidebar.email')}
                 type="email"
                 value={cvData.generalInfo.email}
                 onChange={(e) => handleChange(e, 'email', 'generalInfo')}
                 placeholder="e.g. john@example.com"
               />
               <InputGroup
-                label="Phone"
+                label={t('sidebar.phone')}
                 value={cvData.generalInfo.phone}
                 onChange={(e) => handleChange(e, 'phone', 'generalInfo')}
                 placeholder="e.g. (555) 123-4567"
               />
               <InputGroup
-                label="Location"
+                label={t('sidebar.address')}
                 value={cvData.generalInfo.address}
                 onChange={(e) => handleChange(e, 'address', 'generalInfo')}
                 placeholder="e.g. New York, NY"
               />
               <InputGroup
-                label="LinkedIn"
+                label={t('sidebar.linkedin')}
                 value={cvData.generalInfo.linkedin}
                 onChange={(e) => handleChange(e, 'linkedin', 'generalInfo')}
                 placeholder="e.g. linkedin.com/in/johndoe"
               />
               <InputGroup
-                label="Website"
+                label={t('sidebar.website')}
                 value={cvData.generalInfo.website}
                 onChange={(e) => handleChange(e, 'website', 'generalInfo')}
                 placeholder="e.g. johndoe.com"
@@ -126,7 +128,7 @@ const SideBar = () => {
         <div className="border-b border-gray-200">
           <SectionTitle
             icon={GraduationCap}
-            title="Education"
+            title={t('sidebar.education')}
             section="education"
             activeSection={activeSection}
             toggleSection={toggleSection}
@@ -142,30 +144,30 @@ const SideBar = () => {
                     <Trash2 size={16} />
                   </button>
                   <InputGroup
-                    label="School / University"
+                    label={t('sidebar.school')}
                     value={edu.school}
                     onChange={(e) => handleChange(e, 'school', 'education', edu.id)}
                   />
                   <InputGroup
-                    label="Degree"
+                    label={t('sidebar.degree')}
                     value={edu.degree}
                     onChange={(e) => handleChange(e, 'degree', 'education', edu.id)}
                   />
                    <div className="grid grid-cols-2 gap-4">
                       <InputGroup
-                        label="Dates"
+                        label={t('sidebar.dates')}
                         value={edu.dates}
                         onChange={(e) => handleChange(e, 'dates', 'education', edu.id)}
                         placeholder="Aug 2018 - May 2022"
                       />
                       <InputGroup
-                        label="Location"
+                        label={t('sidebar.location')}
                         value={edu.location}
                         onChange={(e) => handleChange(e, 'location', 'education', edu.id)}
                       />
                    </div>
                    <div className="mb-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t('sidebar.description')}</label>
                     <textarea
                       value={edu.description}
                       onChange={(e) => handleChange(e, 'description', 'education', edu.id)}
@@ -178,7 +180,7 @@ const SideBar = () => {
                 onClick={() => addItem('education', { school: '', degree: '', dates: '', location: '', description: '' })}
                 className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
-                <Plus size={18} /> Add Education
+                <Plus size={18} /> {t('sidebar.addEducation')}
               </button>
             </div>
           )}
@@ -188,7 +190,7 @@ const SideBar = () => {
         <div className="border-b border-gray-200">
           <SectionTitle
             icon={Briefcase}
-            title="Professional Experience"
+            title={t('sidebar.experience')}
             section="experience"
             activeSection={activeSection}
             toggleSection={toggleSection}
@@ -204,30 +206,30 @@ const SideBar = () => {
                     <Trash2 size={16} />
                   </button>
                   <InputGroup
-                    label="Company Name"
+                    label={t('sidebar.company')}
                     value={exp.company}
                     onChange={(e) => handleChange(e, 'company', 'experience', exp.id)}
                   />
                   <InputGroup
-                    label="Role / Title"
+                    label={t('sidebar.role')}
                     value={exp.role}
                     onChange={(e) => handleChange(e, 'role', 'experience', exp.id)}
                   />
                    <div className="grid grid-cols-2 gap-4">
                       <InputGroup
-                        label="Dates"
+                        label={t('sidebar.dates')}
                         value={exp.dates}
                         onChange={(e) => handleChange(e, 'dates', 'experience', exp.id)}
                         placeholder="Jun 2022 - Present"
                       />
                       <InputGroup
-                        label="Location"
+                        label={t('sidebar.location')}
                         value={exp.location}
                         onChange={(e) => handleChange(e, 'location', 'experience', exp.id)}
                       />
                    </div>
                    <div className="mb-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t('sidebar.description')}</label>
                     <textarea
                       value={exp.description}
                       onChange={(e) => handleChange(e, 'description', 'experience', exp.id)}
@@ -240,7 +242,7 @@ const SideBar = () => {
                 onClick={() => addItem('experience', { company: '', role: '', dates: '', location: '', description: '' })}
                 className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
-                <Plus size={18} /> Add Experience
+                <Plus size={18} /> {t('sidebar.addExperience')}
               </button>
             </div>
           )}
@@ -250,7 +252,7 @@ const SideBar = () => {
         <div className="border-b border-gray-200">
            <SectionTitle
             icon={Wrench}
-            title="Skills"
+            title={t('sidebar.skills')}
             section="skills"
             activeSection={activeSection}
             toggleSection={toggleSection}
@@ -266,14 +268,14 @@ const SideBar = () => {
                     <Trash2 size={16} />
                   </button>
                   <InputGroup
-                    label="Category"
+                    label={t('sidebar.category')}
                     value={skill.category}
                     onChange={(e) => handleChange(e, 'category', 'skills', skill.id)}
                     placeholder="e.g. Languages"
                     className="mb-0"
                   />
                    <InputGroup
-                    label="Skills List"
+                    label={t('sidebar.items')}
                     value={skill.items}
                     onChange={(e) => handleChange(e, 'items', 'skills', skill.id)}
                     placeholder="e.g. Java, Python, C++"
@@ -285,7 +287,7 @@ const SideBar = () => {
                 onClick={() => addItem('skills', { category: '', items: '' })}
                 className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
-                <Plus size={18} /> Add Skill Group
+                <Plus size={18} /> {t('sidebar.addSkill')}
               </button>
             </div>
            )}
@@ -295,7 +297,7 @@ const SideBar = () => {
         <div className="border-b border-gray-200">
            <SectionTitle
             icon={Wrench}
-            title="Languages"
+            title={t('sidebar.languages')}
             section="languages"
             activeSection={activeSection}
             toggleSection={toggleSection}
@@ -311,14 +313,14 @@ const SideBar = () => {
                     <Trash2 size={16} />
                   </button>
                   <InputGroup
-                    label="Language"
+                    label={t('sidebar.languageName')}
                     value={language.language}
                     onChange={(e) => handleChange(e, 'language', 'languages', language.id)}
                     placeholder="e.g. English"
                     className="mb-0"
                   />
                    <InputGroup
-                    label="Level"
+                    label={t('sidebar.level')}
                     value={language.level}
                     onChange={(e) => handleChange(e, 'level', 'languages', language.id)}
                     placeholder="e.g. Native"
@@ -330,7 +332,7 @@ const SideBar = () => {
                 onClick={() => addItem('languages', { language: '', level: '' })}
                 className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
               >
-                <Plus size={18} /> Add Language
+                <Plus size={18} /> {t('sidebar.addLanguage')}
               </button>
             </div>
            )}

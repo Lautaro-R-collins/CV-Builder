@@ -1,10 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useCV } from '../../context/CVContext';
 
 const CV = () => {
+  const { t } = useTranslation();
   const { cvData } = useCV();
   const { generalInfo, education, experience, skills, languages } = cvData;
-
-
 
   return (
     <div className="bg-white text-black p-[2.5cm] h-full w-full font-serif leading-relaxed text-sm">
@@ -23,7 +23,7 @@ const CV = () => {
       {/* Education */}
       {education.length > 0 && (
         <section className="mb-6">
-          <h2 className="text-base font-bold uppercase border-b border-black mb-3">Education</h2>
+          <h2 className="text-base font-bold uppercase border-b border-black mb-3">{t('cv.education')}</h2>
           {education.map((edu) => (
             <div key={edu.id} className="mb-3">
               <div className="flex justify-between items-baseline font-bold">
@@ -45,7 +45,7 @@ const CV = () => {
       {/* Experience */}
       {experience.length > 0 && (
         <section className="mb-6">
-          <h2 className="text-base font-bold uppercase border-b border-black mb-3">Professional Experience</h2>
+          <h2 className="text-base font-bold uppercase border-b border-black mb-3">{t('cv.experience')}</h2>
           {experience.map((exp) => (
             <div key={exp.id} className="mb-4">
               <div className="flex justify-between items-baseline font-bold">
@@ -66,8 +66,8 @@ const CV = () => {
 
       {/* Skills */}
       {skills.length > 0 && (
-        <section>
-          <h2 className="text-base font-bold uppercase border-b border-black mb-3">Skills</h2>
+        <section className="mb-6">
+          <h2 className="text-base font-bold uppercase border-b border-black mb-3">{t('cv.skills')}</h2>
           <div className="grid grid-cols-1 gap-1">
             {skills.map((skill) => (
               <div key={skill.id} className="flex">
@@ -78,10 +78,11 @@ const CV = () => {
           </div>
         </section>
       )}
-      {/* Lenguages */}
+
+      {/* Languages */}
       {languages.length > 0 && (
         <section>
-          <h2 className="text-base font-bold uppercase border-b border-black mb-3">Languages</h2>
+          <h2 className="text-base font-bold uppercase border-b border-black mb-3">{t('cv.languages')}</h2>
           <div className="grid grid-cols-1 gap-1">
             {languages.map((language) => (
               <div key={language.id} className="flex">
