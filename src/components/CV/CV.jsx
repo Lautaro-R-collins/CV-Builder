@@ -4,7 +4,7 @@ import { useCV } from '../../context/CVContext';
 const CV = () => {
   const { t } = useTranslation();
   const { cvData } = useCV();
-  const { generalInfo, education, experience, skills, languages, settings } = cvData;
+  const { generalInfo, education, experience, skills, languages, settings, courses } = cvData;
 
   const fontSizes = {
     xs: 'text-xs',
@@ -89,6 +89,25 @@ const CV = () => {
               <div key={skill.id} className="flex">
                 <span className="font-bold min-w-[120px]">{skill.category}:</span>
                 <span>{skill.items}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Courses */}
+      {courses && courses.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-base font-bold uppercase border-b border-black mb-3">{t('cv.courses')}</h2>
+          <div className="grid grid-cols-1 gap-2">
+            {courses.map((course) => (
+              <div key={course.id} className="flex justify-between items-baseline">
+                <div>
+                    <span className="font-bold">{course.name}</span>
+                    <span className="mx-2">|</span>
+                    <span className="italic">{course.organization}</span>
+                </div>
+                <span className="font-bold">{course.date}</span>
               </div>
             ))}
           </div>
