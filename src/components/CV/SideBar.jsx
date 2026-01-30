@@ -290,6 +290,51 @@ const SideBar = () => {
             </div>
            )}
         </div>
+
+        {/* Languages Section */}
+        <div className="border-b border-gray-200">
+           <SectionTitle
+            icon={Wrench}
+            title="Languages"
+            section="languages"
+            activeSection={activeSection}
+            toggleSection={toggleSection}
+          />
+           {activeSection === 'languages' && (
+            <div className="p-6 bg-white">
+              {cvData.languages.map((language) => (
+                <div key={language.id} className="mb-4 p-4 bg-gray-50 rounded-lg border border-gray-200 relative flex flex-col gap-3">
+                   <button
+                    onClick={() => deleteItem('languages', language.id)}
+                    className="absolute cursor-pointer top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 rounded-md hover:bg-red-50 transition-colors"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                  <InputGroup
+                    label="Language"
+                    value={language.language}
+                    onChange={(e) => handleChange(e, 'language', 'languages', language.id)}
+                    placeholder="e.g. English"
+                    className="mb-0"
+                  />
+                   <InputGroup
+                    label="Level"
+                    value={language.level}
+                    onChange={(e) => handleChange(e, 'level', 'languages', language.id)}
+                    placeholder="e.g. Native"
+                    className="mb-0"
+                  />
+                </div>
+              ))}
+               <button
+                onClick={() => addItem('languages', { language: '', level: '' })}
+                className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
+              >
+                <Plus size={18} /> Add Language
+              </button>
+            </div>
+           )}
+        </div>
       </div>
     </div>
   );
