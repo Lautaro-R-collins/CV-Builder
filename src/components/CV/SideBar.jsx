@@ -76,20 +76,20 @@ const SideBar = () => {
     <div className="flex flex-col h-full bg-white font-inter">
       <div className="p-6 border-b bg-blue-600 border-gray-200 flex justify-between items-start">
         <div>
-           <h2 className="text-2xl font-bold text-gray-800">CV Builder</h2>
-           <p className="text-sm text-gray-500 mt-1">Customize your resume sections</p>
+           <h2 className="text-2xl font-bold text-white">CV Builder</h2>
+           <p className="text-sm text-white mt-1">Customize your resume sections</p>
         </div>
         <div className="flex gap-2">
             <button
                 onClick={() => setIsInfoOpen(true)}
-                className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
+                className="p-2 text-white hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
                 title="Format Info"
             >
                 <Info size={20} />
             </button>
             <button
                 onClick={() => setIsSettingsOpen(true)}
-                className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                className="p-2 text-white hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                 title="CV Settings"
             >
                 <Settings size={20} />
