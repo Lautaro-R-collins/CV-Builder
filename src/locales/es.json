@@ -39,5 +39,28 @@
         "experience": "Experiencia",
         "skills": "Habilidades",
         "languages": "Idiomas"
+    },
+    "settings": {
+        "title": "Configuración del CV",
+        "margins": "Márgenes (cm)",
+        "headerColor": "Color del Encabezado",
+        "headerStyle": "Estilo del Encabezado",
+        "center": "Centrado",
+        "left": "Izquierda",
+        "fontSize": "Tamaño de Fuente",
+        "xs": "Muy Pequeña",
+        "sm": "Pequeña (Estándar)",
+        "base": "Normal"
+    },
+    "info": {
+        "title": "¿Por qué el formato Harvard/ATS?",
+        "harvardTitle": "El Formato Harvard",
+        "harvardText": "El formato propuesto por Harvard es el estándar de oro para currículums profesionales. Se enfoca en la claridad, la jerarquía visual y los logros cuantificables, eliminando distracciones visuales innecesarias.",
+        "atsTitle": "Amigable con ATS",
+        "atsText": "El 75% de los currículums nunca llegan a ojos humanos debido a los Sistemas de Seguimiento de Candidatos (ATS). Nuestro diseño utiliza una estructura de columna única y fuentes estándar que garantizan que el software pueda leer tu información correctamente.",
+        "tipsTitle": "Consejos Rápidos",
+        "tip1": "Usa verbos de acción fuertes.",
+        "tip2": "Sé conciso y ve al grano.",
+        "tip3": "Manténlo en una página si es posible."
     }
 }

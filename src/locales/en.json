@@ -39,5 +39,28 @@
         "experience": "Experience",
         "skills": "Skills",
         "languages": "Languages"
+    },
+    "settings": {
+        "title": "CV Settings",
+        "margins": "Margins (cm)",
+        "headerColor": "Header Color",
+        "headerStyle": "Header Style",
+        "center": "Centered",
+        "left": "Left Aligned",
+        "fontSize": "Font Size",
+        "xs": "Extra Small",
+        "sm": "Small (Standard)",
+        "base": "Normal"
+    },
+    "info": {
+        "title": "Why Harvard/ATS Format?",
+        "harvardTitle": "The Harvard Format",
+        "harvardText": "The format proposed by Harvard is the gold standard for professional resumes. It focuses on clarity, visual hierarchy, and quantifiable achievements, removing unnecessary visual distractions.",
+        "atsTitle": "ATS Friendly",
+        "atsText": "75% of resumes never reach human eyes due to Applicant Tracking Systems (ATS). Our design uses a single-column structure and standard fonts that ensure software can read your information correctly.",
+        "tipsTitle": "Quick Tips",
+        "tip1": "Use strong action verbs.",
+        "tip2": "Be concise and to the point.",
+        "tip3": "Keep it to one page if possible."
     }
 }
