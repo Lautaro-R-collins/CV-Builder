@@ -2,6 +2,9 @@
 
 Una aplicación web para crear currículums profesionales de forma sencilla siguiendo el formato recomendado por Harvard y amigable con los ATS. Permite la edición en tiempo real de la información personal, experiencia laboral, educación y habilidades, con la posibilidad de descargar el resultado final en formato PDF.
 
+<img width="1366" height="642" alt="CvBuilder" src="https://github.com/user-attachments/assets/63de43d2-e8c9-4a34-8685-7c789471574f" />
+
+
 ##  Tecnologías Utilizadas
 
 - **React 19** & **Vite**: Para una experiencia de desarrollo rápida y una interfaz reactiva.
