@@ -10,7 +10,11 @@ import {
   ChevronUp,
   Plus,
   Trash2,
+  Settings,
+  Info,
 } from 'lucide-react';
+import SettingsModal from './SettingsModal';
+import InfoModal from './InfoModal';
 
 const SectionTitle = ({ icon, title, section, activeSection, toggleSection }) => {
   const Icon = icon;
@@ -51,6 +55,8 @@ const SideBar = () => {
   const { t } = useTranslation();
   const { cvData, updateGeneralInfo, addItem, updateItem, deleteItem } = useCV();
   const [activeSection, setActiveSection] = useState('general');
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
 
   const toggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
@@ -66,10 +72,31 @@ const SideBar = () => {
 
   return (
     <div className="flex flex-col h-full bg-white font-inter">
-      <div className="p-6 border-b border-gray-200">
-        <h2 className="text-2xl font-bold text-gray-800">CV Builder</h2>
-        <p className="text-sm text-gray-500 mt-1">Customize your resume sections</p>
+      <div className="p-6 border-b border-gray-200 flex justify-between items-start">
+        <div>
+           <h2 className="text-2xl font-bold text-gray-800">CV Builder</h2>
+           <p className="text-sm text-gray-500 mt-1">Customize your resume sections</p>
+        </div>
+        <div className="flex gap-2">
+            <button
+                onClick={() => setIsInfoOpen(true)}
+                className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
+                title="Format Info"
+            >
+                <Info size={20} />
+            </button>
+            <button
+                onClick={() => setIsSettingsOpen(true)}
+                className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                title="CV Settings"
+            >
+                <Settings size={20} />
+            </button>
+        </div>
       </div>
+
+      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
+      <InfoModal isOpen={isInfoOpen} onClose={() => setIsInfoOpen(false)} />
 
       <div className="flex-1 overflow-y-auto">
         {/* General Info Section */}
