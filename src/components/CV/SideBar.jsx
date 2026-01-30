@@ -12,6 +12,8 @@ import {
   Trash2,
   Settings,
   Info,
+  Languages as LanguagesIcon,
+  Award,
 } from 'lucide-react';
 import SettingsModal from './SettingsModal';
 import InfoModal from './InfoModal';
@@ -72,7 +74,7 @@ const SideBar = () => {
 
   return (
     <div className="flex flex-col h-full bg-white font-inter">
-      <div className="p-6 border-b border-gray-200 flex justify-between items-start">
+      <div className="p-6 border-b bg-blue-600 border-gray-200 flex justify-between items-start">
         <div>
            <h2 className="text-2xl font-bold text-gray-800">CV Builder</h2>
            <p className="text-sm text-gray-500 mt-1">Customize your resume sections</p>
@@ -320,10 +322,62 @@ const SideBar = () => {
            )}
         </div>
 
+        {/* Courses Section */}
+        <div className="border-b border-gray-200">
+           <SectionTitle
+            icon={Award}
+            title={t('sidebar.courses')}
+            section="courses"
+            activeSection={activeSection}
+            toggleSection={toggleSection}
+          />
+           {activeSection === 'courses' && (
+            <div className="p-6 bg-white">
+              {cvData.courses.map((course) => (
+                <div key={course.id} className="mb-4 p-4 bg-gray-50 rounded-lg border border-gray-200 relative flex flex-col gap-3">
+                   <button
+                    onClick={() => deleteItem('courses', course.id)}
+                    className="absolute cursor-pointer top-2 right-2 p-1.5 text-gray-400 hover:text-red-500 rounded-md hover:bg-red-50 transition-colors"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                  <InputGroup
+                    label={t('sidebar.courseName')}
+                    value={course.name}
+                    onChange={(e) => handleChange(e, 'name', 'courses', course.id)}
+                    placeholder="e.g. Full Stack Development"
+                    className="mb-0"
+                  />
+                   <InputGroup
+                    label={t('sidebar.organization')}
+                    value={course.organization}
+                    onChange={(e) => handleChange(e, 'organization', 'courses', course.id)}
+                    placeholder="e.g. Udemy"
+                    className="mb-0"
+                  />
+                   <InputGroup
+                    label={t('sidebar.courseDate')}
+                    value={course.date}
+                    onChange={(e) => handleChange(e, 'date', 'courses', course.id)}
+                    placeholder="e.g. 2023"
+                    className="mb-0"
+                  />
+                </div>
+              ))}
+               <button
+                onClick={() => addItem('courses', { name: '', organization: '', date: '' })}
+                className="w-full cursor-pointer py-2 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
+              >
+                <Plus size={18} /> {t('sidebar.addCourse')}
+              </button>
+            </div>
+           )}
+        </div>
+
         {/* Languages Section */}
         <div className="border-b border-gray-200">
            <SectionTitle
-            icon={Wrench}
+            icon={LanguagesIcon}
             title={t('sidebar.languages')}
             section="languages"
             activeSection={activeSection}
