@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const initialState = {
     generalInfo: {
         fullName: 'John Doe',
+        jobTitle: 'Software Engineer',
         email: 'john.doe@example.com',
         phone: '(555) 123-4567',
         address: 'New York, NY',

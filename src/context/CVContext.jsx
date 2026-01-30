@@ -1,10 +1,19 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer, useEffect } from 'react';
 import { initialState, cvReducer } from './cvReducer';
 
 const CVContext = createContext();
 
+const STORAGE_KEY = 'cv_builder_data';
+
 export const CVProvider = ({ children }) => {
-  const [cvData, dispatch] = useReducer(cvReducer, initialState);
+  const [cvData, dispatch] = useReducer(cvReducer, initialState, (initial) => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : initial;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cvData));
+  }, [cvData]);
 
   const updateGeneralInfo = (data) => {
     dispatch({ type: 'UPDATE_GENERAL_INFO', payload: data });
