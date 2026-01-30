@@ -4,14 +4,30 @@ import { useCV } from '../../context/CVContext';
 const CV = () => {
   const { t } = useTranslation();
   const { cvData } = useCV();
-  const { generalInfo, education, experience, skills, languages } = cvData;
+  const { generalInfo, education, experience, skills, languages, settings } = cvData;
+
+  const fontSizes = {
+    xs: 'text-xs',
+    sm: 'text-sm',
+    base: 'text-base',
+  };
 
   return (
-    <div className="bg-white text-black p-[2.5cm] h-full w-full font-serif leading-relaxed text-sm">
+    <div 
+        className={`bg-white text-black h-full w-full font-serif leading-relaxed ${fontSizes[settings.fontSize] || 'text-sm'}`}
+        style={{ padding: `${settings.margins}cm` }}
+    >
       {/* Header */}
-      <header className="mb-4 text-center border-b border-black pb-4">
-        <h1 className="text-3xl font-bold uppercase tracking-wide mb-2">{generalInfo.fullName}</h1>
-        <div className="flex flex-wrap justify-center gap-x-4 text-sm text-gray-800">
+      <header 
+        className={`mb-4 border-b border-black pb-4 ${settings.headerStyle === 'center' ? 'text-center' : 'text-left'}`}
+        style={{ color: settings.headerColor }}
+      >
+        <h1 
+            className="text-3xl font-bold uppercase tracking-wide mb-2"
+        >
+            {generalInfo.fullName}
+        </h1>
+        <div className={`flex flex-wrap gap-x-4 ${settings.headerStyle === 'center' ? 'justify-center' : 'justify-start'} text-sm opacity-90`}>
            {generalInfo.address && <span>{generalInfo.address}</span>}
            {generalInfo.phone && <span>{generalInfo.phone}</span>}
            {generalInfo.email && <span>{generalInfo.email}</span>}
