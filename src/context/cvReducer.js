@@ -38,6 +38,12 @@ export const initialState = {
         { id: uuidv4(), language: 'English', level: 'Native' },
         { id: uuidv4(), language: 'Spanish', level: 'Native' },
     ],
+    settings: {
+        margins: 2.5, // in cm
+        headerColor: '#000000',
+        headerStyle: 'center', // center, left
+        fontSize: 'sm', // xs, sm, base
+    },
 };
 
 export const cvReducer = (state, action) => {
@@ -46,6 +52,11 @@ export const cvReducer = (state, action) => {
             return {
                 ...state,
                 generalInfo: { ...state.generalInfo, ...action.payload },
+            };
+        case 'UPDATE_SETTINGS':
+            return {
+                ...state,
+                settings: { ...state.settings, ...action.payload },
             };
         case 'ADD_ITEM':
             return {
