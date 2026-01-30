@@ -26,6 +26,11 @@ const CV = () => {
             className="text-3xl font-bold uppercase tracking-wide mb-2"
         >
             {generalInfo.fullName}
+            {generalInfo.jobTitle && (
+              <span className="ml-3 text-lg font-normal italic capitalize text-current opacity-80">
+                {generalInfo.jobTitle}
+              </span>
+            )}
         </h1>
         <div className={`flex flex-wrap gap-x-4 ${settings.headerStyle === 'center' ? 'justify-center' : 'justify-start'} text-sm opacity-90`}>
            {generalInfo.address && <span>{generalInfo.address}</span>}
