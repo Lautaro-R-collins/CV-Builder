@@ -22,8 +22,12 @@ export const CVProvider = ({ children }) => {
     dispatch({ type: 'DELETE_ITEM', payload: { section, id } });
   };
 
+  const updateSettings = (data) => {
+    dispatch({ type: 'UPDATE_SETTINGS', payload: data });
+  };
+
   return (
-    <CVContext.Provider value={{ cvData, updateGeneralInfo, addItem, updateItem, deleteItem }}>
+    <CVContext.Provider value={{ cvData, updateGeneralInfo, addItem, updateItem, deleteItem, updateSettings }}>
       {children}
     </CVContext.Provider>
   );
