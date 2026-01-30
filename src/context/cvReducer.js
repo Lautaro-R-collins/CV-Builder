@@ -38,6 +38,14 @@ export const initialState = {
         { id: uuidv4(), language: 'English', level: 'Native' },
         { id: uuidv4(), language: 'Spanish', level: 'Native' },
     ],
+    courses: [
+        {
+            id: uuidv4(),
+            name: 'Full Stack Development',
+            organization: 'Udemy',
+            date: '2023',
+        },
+    ],
     settings: {
         margins: 2.5, // in cm
         headerColor: '#000000',
