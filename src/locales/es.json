@@ -12,10 +12,12 @@
         "experience": "Experiencia Laboral",
         "skills": "Habilidades",
         "languages": "Idiomas",
+        "courses": "Cursos y Certificaciones",
         "addEducation": "Añadir Educación",
         "addExperience": "Añadir Experiencia",
         "addSkill": "Añadir Habilidad",
         "addLanguage": "Añadir Idioma",
+        "addCourse": "Añadir Curso/Certificado",
         "fullName": "Nombre Completo",
         "email": "Correo Electrónico",
         "phone": "Teléfono",
@@ -32,13 +34,17 @@
         "category": "Categoría (ej. Lenguajes)",
         "items": "Ítems (separados por coma)",
         "languageName": "Idioma",
-        "level": "Nivel (ej. Nativo, B2)"
+        "level": "Nivel (ej. Nativo, B2)",
+        "courseName": "Nombre del Curso",
+        "organization": "Organización / Plataforma",
+        "courseDate": "Fecha"
     },
     "cv": {
         "education": "Educación",
         "experience": "Experiencia",
         "skills": "Habilidades",
-        "languages": "Idiomas"
+        "languages": "Idiomas",
+        "courses": "Cursos"
     },
     "settings": {
         "title": "Configuración del CV",

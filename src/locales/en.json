@@ -12,10 +12,12 @@
         "experience": "Work Experience",
         "skills": "Skills",
         "languages": "Languages",
+        "courses": "Courses & Certifications",
         "addEducation": "Add Education",
         "addExperience": "Add Experience",
         "addSkill": "Add Skill",
         "addLanguage": "Add Language",
+        "addCourse": "Add Course/Certificate",
         "fullName": "Full Name",
         "email": "Email",
         "phone": "Phone",
@@ -32,13 +34,17 @@
         "category": "Category (e.g. Languages)",
         "items": "Items (comma separated)",
         "languageName": "Language",
-        "level": "Level (e.g. Native, B2)"
+        "level": "Level (e.g. Native, B2)",
+        "courseName": "Course Name",
+        "organization": "Organization / Platform",
+        "courseDate": "Date"
     },
     "cv": {
         "education": "Education",
         "experience": "Experience",
         "skills": "Skills",
-        "languages": "Languages"
+        "languages": "Languages",
+        "courses": "Courses"
     },
     "settings": {
         "title": "CV Settings",
