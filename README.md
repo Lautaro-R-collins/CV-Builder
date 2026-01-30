@@ -10,6 +10,7 @@ Una aplicación web para crear currículums profesionales de forma sencilla sigu
 - **Lucide React**: Biblioteca de iconos elegantes y minimalistas.
 - **react-to-print**: Para la generación y descarga precisa de archivos PDF.
 - **UUID**: Generación de identificadores únicos para los elementos de las listas.
+- **I18n**: Cambio de idioma de Ingles a Espanol con i18n
 
 ## 📂 Estructura del Proyecto
 
