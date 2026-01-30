@@ -116,14 +116,20 @@ const SideBar = () => {
                 label={t('sidebar.fullName')}
                 value={cvData.generalInfo.fullName}
                 onChange={(e) => handleChange(e, 'fullName', 'generalInfo')}
-                placeholder="e.g. John Doe"
+                placeholder="John Doe"
+              />
+              <InputGroup
+                label={t('sidebar.jobTitle')}
+                value={cvData.generalInfo.jobTitle}
+                onChange={(e) => handleChange(e, 'jobTitle', 'generalInfo')}
+                placeholder="e.g. Web Developer"
               />
               <InputGroup
                 label={t('sidebar.email')}
                 type="email"
                 value={cvData.generalInfo.email}
                 onChange={(e) => handleChange(e, 'email', 'generalInfo')}
-                placeholder="e.g. john@example.com"
+                placeholder="john.doe@example.com"
               />
               <InputGroup
                 label={t('sidebar.phone')}
