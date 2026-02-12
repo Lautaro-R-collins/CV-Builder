@@ -39,8 +39,8 @@ function App() {
            </div>
 
            {/* CV Preview Area */}
-           <div className="w-[210mm] min-h-[297mm] bg-white shadow-2xl mb-10 print:shadow-none print:m-0 origin-top transform scale-[0.8] lg:scale-[0.85] xl:scale-100 transition-transform duration-300">
-              <div ref={componentRef} className="w-full h-full">
+           <div className="w-full max-w-fit mb-10 print:m-0 origin-top transform scale-[0.8] lg:scale-[0.85] xl:scale-100 transition-transform duration-300">
+              <div ref={componentRef} className="w-full">
                 <CV />
               </div>
            </div>
