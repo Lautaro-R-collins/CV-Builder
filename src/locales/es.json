@@ -4,7 +4,9 @@
         "language": "Idioma",
         "english": "Inglés",
         "spanish": "Español",
-        "selectLanguage": "Seleccionar Idioma"
+        "selectLanguage": "Seleccionar Idioma",
+        "edit": "Editar",
+        "preview": "Vista Previa"
     },
     "sidebar": {
         "personalInfo": "Información Personal",

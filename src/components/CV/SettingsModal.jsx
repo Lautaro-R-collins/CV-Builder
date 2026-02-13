@@ -30,7 +30,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
           {/* Margins */}
           <div className="space-y-3">
             <div className="flex justify-between items-center text-sm font-medium text-gray-700">
