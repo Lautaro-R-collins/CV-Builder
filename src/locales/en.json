@@ -73,5 +73,9 @@
         "tip1": "Use strong action verbs.",
         "tip2": "Be concise and to the point.",
         "tip3": "Keep it to one page if possible."
+    },
+    "toasts": {
+        "downloadStarted": "Download started! Your CV is being prepared...",
+        "languageChanged": "Language updated!"
     }
 }

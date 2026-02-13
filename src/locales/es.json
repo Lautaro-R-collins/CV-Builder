@@ -73,5 +73,9 @@
         "tip1": "Usa verbos de acción fuertes.",
         "tip2": "Sé conciso y ve al grano.",
         "tip3": "Manténlo en una página si es posible."
+    },
+    "toasts": {
+        "downloadStarted": "¡Descarga iniciada! Tu CV se está preparando...",
+        "languageChanged": "¡Idioma actualizado!"
     }
 }

@@ -37,7 +37,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
           </h3>
           <button
             onClick={onClose}
-            className="p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-1 cursor-pointer text-gray-400 hover:text-red-600 hover:bg-gray-100 rounded-full transition-colors"
           >
             <X size={20} />
           </button>
@@ -50,7 +50,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
              <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
                 <Layout size={16} /> {t('settings.layout')}
             </label>
-            <p className="text-[10px] text-gray-400 italic mb-2">{t('settings.dragHint')}</p>
+            <p className="text-[13px] text-black italic mb-2">{t('settings.dragHint')}</p>
             
             <DragDropContext onDragEnd={handleDragEnd}>
               <Droppable droppableId="sections">
@@ -149,7 +149,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
                 </button>
                 <button
                     onClick={() => updateSettings({ headerStyle: 'left' })}
-                    className={`flex items-center justify-center gap-2 py-2 px-4 rounded-lg border-2 transition-all ${
+                    className={`flex items-center cursor-pointer justify-center gap-2 py-2 px-4 rounded-lg border-2 transition-all ${
                         settings.headerStyle === 'left' 
                         ? 'border-blue-500 bg-blue-50 text-blue-700' 
                         : 'border-gray-100 text-gray-600 hover:bg-gray-50'
@@ -170,7 +170,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
                     <button
                         key={size}
                         onClick={() => updateSettings({ fontSize: size })}
-                        className={`flex-1 py-1.5 rounded-lg text-xs font-semibold uppercase transition-all ${
+                        className={`flex-1 py-1.5 cursor-pointer rounded-lg text-xs font-semibold uppercase transition-all ${
                             settings.fontSize === size 
                             ? 'bg-white text-blue-600 shadow-sm' 
                             : 'text-gray-500 hover:text-gray-700 hover:bg-gray-200'
