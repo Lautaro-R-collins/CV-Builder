@@ -8,7 +8,14 @@ const STORAGE_KEY = 'cv_builder_data';
 export const CVProvider = ({ children }) => {
   const [cvData, dispatch] = useReducer(cvReducer, initialState, (initial) => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : initial;
+    if (!saved) return initial;
+    
+    const parsed = JSON.parse(saved);
+    // Ensure new settings (like sectionOrder) are merged into existing saved data
+    return {
+      ...parsed,
+      settings: { ...initial.settings, ...parsed.settings }
+    };
   });
 
   useEffect(() => {

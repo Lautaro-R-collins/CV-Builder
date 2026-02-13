@@ -77,7 +77,7 @@ const CV = () => {
   // Define component blocks to be measured/rendered
   const blocks = [];
 
-  // Header
+  // 1. Header is ALWAYS first (as requested: "personal info goes up")
   blocks.push(
     <header 
       key="header"
@@ -102,92 +102,107 @@ const CV = () => {
     </header>
   );
 
-  // Education Section Header
-  if (education.length > 0) {
-    blocks.push(<h2 key="edu-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.education')}</h2>);
-    education.forEach((edu) => {
-      blocks.push(
-        <div key={`edu-${edu.id}`} className="mb-3">
-          <div className="flex justify-between items-baseline font-bold">
-            <span>{edu.school}</span>
-            <span>{edu.location}</span>
-          </div>
-          <div className="flex justify-between items-baseline italic">
-            <span>{edu.degree}</span>
-            <span>{edu.dates}</span>
-          </div>
-          {edu.description && (
-              <p className="mt-1 whitespace-pre-line text-justify">{edu.description}</p>
-          )}
-        </div>
-      );
-    });
-  }
+  // 2. Render other sections based on settings.sectionOrder
+  const renderOrder = settings.sectionOrder || ['education', 'experience', 'skills', 'courses', 'languages'];
 
-  // Experience Section Header
-  if (experience.length > 0) {
-    blocks.push(<h2 key="exp-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.experience')}</h2>);
-    experience.forEach((exp) => {
-      blocks.push(
-        <div key={`exp-${exp.id}`} className="mb-4">
-          <div className="flex justify-between items-baseline font-bold">
-            <span>{exp.company}</span>
-            <span>{exp.location}</span>
-          </div>
-          <div className="flex justify-between items-baseline italic mb-1">
-            <span>{exp.role}</span>
-            <span>{exp.dates}</span>
-          </div>
-           {exp.description && (
-              <p className="whitespace-pre-line text-justify">{exp.description}</p>
-          )}
-        </div>
-      );
-    });
-  }
+  renderOrder.forEach(sectionId => {
+    switch (sectionId) {
+      case 'education':
+        if (education.length > 0) {
+          blocks.push(<h2 key="edu-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.education')}</h2>);
+          education.forEach((edu) => {
+            blocks.push(
+              <div key={`edu-${edu.id}`} className="mb-3 text-justify">
+                <div className="flex justify-between items-baseline font-bold capitalize">
+                  <span>{edu.school}</span>
+                  <span>{edu.location}</span>
+                </div>
+                <div className="flex justify-between items-baseline italic">
+                  <span>{edu.degree}</span>
+                  <span>{edu.dates}</span>
+                </div>
+                {edu.description && (
+                    <p className="mt-1 whitespace-pre-line">{edu.description}</p>
+                )}
+              </div>
+            );
+          });
+        }
+        break;
 
-  // Skills
-  if (skills.length > 0) {
-    blocks.push(<h2 key="sk-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.skills')}</h2>);
-    skills.forEach((skill) => {
-        blocks.push(
-            <div key={`skill-${skill.id}`} className="flex mb-1">
-                <span className="font-bold min-w-[120px]">{skill.category}:</span>
-                <span>{skill.items}</span>
-            </div>
-        );
-    });
-  }
+      case 'experience':
+        if (experience.length > 0) {
+          blocks.push(<h2 key="exp-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.experience')}</h2>);
+          experience.forEach((exp) => {
+            blocks.push(
+              <div key={`exp-${exp.id}`} className="mb-4 text-justify">
+                <div className="flex justify-between items-baseline font-bold capitalize">
+                  <span>{exp.company}</span>
+                  <span>{exp.location}</span>
+                </div>
+                <div className="flex justify-between items-baseline italic mb-1">
+                  <span>{exp.role}</span>
+                  <span>{exp.dates}</span>
+                </div>
+                 {exp.description && (
+                    <p className="whitespace-pre-line">{exp.description}</p>
+                )}
+              </div>
+            );
+          });
+        }
+        break;
 
-  // Courses
-  if (courses && courses.length > 0) {
-    blocks.push(<h2 key="crs-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.courses')}</h2>);
-    courses.forEach((course) => {
-      blocks.push(
-        <div key={`course-${course.id}`} className="flex justify-between items-baseline mb-2">
-          <div>
-              <span className="font-bold">{course.name}</span>
-              <span className="mx-2">|</span>
-              <span className="italic">{course.organization}</span>
-          </div>
-          <span className="font-bold">{course.date}</span>
-        </div>
-      );
-    });
-  }
+      case 'skills':
+        if (skills.length > 0) {
+          blocks.push(<h2 key="sk-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.skills')}</h2>);
+          skills.forEach((skill) => {
+              blocks.push(
+                  <div key={`skill-${skill.id}`} className="flex mb-1">
+                      <span className="font-bold min-w-[120px]">{skill.category}:</span>
+                      <span>{skill.items}</span>
+                  </div>
+              );
+          });
+        }
+        break;
 
-  // Languages
-  if (languages.length > 0) {
-    blocks.push(<h2 key="lang-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.languages')}</h2>);
-    languages.forEach((language) => {
-      blocks.push(
-        <div key={`lang-${language.id}`} className="flex mb-1">
-          <span className="font-bold min-w-[120px]">{language.language}:</span>
-          <span>{language.level}</span>
-        </div>
-      );
-    });
-  }
+      case 'courses':
+        if (courses && courses.length > 0) {
+          blocks.push(<h2 key="crs-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.courses')}</h2>);
+          courses.forEach((course) => {
+            blocks.push(
+              <div key={`course-${course.id}`} className="flex justify-between items-baseline mb-2">
+                <div>
+                    <span className="font-bold">{course.name}</span>
+                    <span className="mx-2">|</span>
+                    <span className="italic">{course.organization}</span>
+                </div>
+                <span className="font-bold">{course.date}</span>
+              </div>
+            );
+          });
+        }
+        break;
+
+      case 'languages':
+        if (languages.length > 0) {
+          blocks.push(<h2 key="lang-hdr" className="text-base font-bold uppercase border-b border-black mb-3 mt-4">{t('cv.languages')}</h2>);
+          languages.forEach((language) => {
+            blocks.push(
+              <div key={`lang-${language.id}`} className="flex mb-1">
+                <span className="font-bold min-w-[120px]">{language.language}:</span>
+                <span>{language.level}</span>
+              </div>
+            );
+          });
+        }
+        break;
+      
+      default:
+        break;
+    }
+  });
 
   return (
     <div className={`w-full flex flex-col items-center gap-8 ${fontSizes[settings.fontSize] || 'text-sm'}`}>

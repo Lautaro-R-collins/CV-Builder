@@ -59,7 +59,9 @@
         "fontSize": "Font Size",
         "xs": "Extra Small",
         "sm": "Small (Standard)",
-        "base": "Normal"
+        "base": "Normal",
+        "layout": "Change Section Layout",
+        "dragHint": "Drag and drop to reorder"
     },
     "info": {
         "title": "Why Harvard/ATS Format?",

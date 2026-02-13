@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useCV } from '../../context/CVContext';
-import { X, Sliders, Palette, AlignLeft, AlignCenter, Type } from 'lucide-react';
+import { X, Sliders, Palette, AlignLeft, AlignCenter, Type, GripVertical, Layout } from 'lucide-react';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 const SettingsModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
@@ -8,6 +9,19 @@ const SettingsModal = ({ isOpen, onClose }) => {
   const { settings } = cvData;
 
   if (!isOpen) return null;
+
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
+
+    const currentOrder = settings.sectionOrder || ['education', 'experience', 'skills', 'courses', 'languages'];
+    const items = Array.from(currentOrder);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    updateSettings({ sectionOrder: items });
+  };
+
+  const sectionOrder = settings.sectionOrder || ['education', 'experience', 'skills', 'courses', 'languages'];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
@@ -30,7 +44,51 @@ const SettingsModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
+        <div className="p-6 space-y-6 max-h-[75vh] overflow-y-auto custom-scrollbar">
+          {/* Section Layout (Drag & Drop) */}
+          <div className="space-y-3">
+             <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                <Layout size={16} /> {t('settings.layout')}
+            </label>
+            <p className="text-[10px] text-gray-400 italic mb-2">{t('settings.dragHint')}</p>
+            
+            <DragDropContext onDragEnd={handleDragEnd}>
+              <Droppable droppableId="sections">
+                {(provided) => (
+                  <div 
+                    {...provided.droppableProps} 
+                    ref={provided.innerRef}
+                    className="space-y-2"
+                  >
+                    {sectionOrder.map((sectionId, index) => (
+                      <Draggable key={sectionId} draggableId={sectionId} index={index}>
+                        {(provided, snapshot) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            className={`flex items-center gap-3 p-3 bg-gray-50 rounded-xl border-2 transition-all ${
+                              snapshot.isDragging ? 'border-blue-500 shadow-lg scale-[1.02] bg-white z-50' : 'border-gray-100'
+                            }`}
+                          >
+                            <div {...provided.dragHandleProps} className="text-gray-400 hover:text-gray-600 cursor-grab active:cursor-grabbing">
+                                <GripVertical size={18} />
+                            </div>
+                            <span className="text-sm font-medium text-gray-700 capitalize">
+                                {t(`cv.${sectionId}`)}
+                            </span>
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
+          </div>
+
+          <hr className="border-gray-100" />
+
           {/* Margins */}
           <div className="space-y-3">
             <div className="flex justify-between items-center text-sm font-medium text-gray-700">
