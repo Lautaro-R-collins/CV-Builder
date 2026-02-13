@@ -16,10 +16,9 @@ const CV = () => {
     base: 'text-base',
   };
 
-  // Convert mm to pixels (approximate, browser handles scaling)
-  // We'll work with relative heights mostly
+  // Convert mm to pixels 
   const A4_HEIGHT_MM = 297;
-  const MARGINS_MM = (settings.margins || 1) * 10; // cm to mm
+  const MARGINS_MM = (settings.margins || 1) * 10;
   const MAX_CONTENT_HEIGHT_MM = A4_HEIGHT_MM - (MARGINS_MM * 2);
 
   useLayoutEffect(() => {
@@ -92,6 +91,7 @@ const CV = () => {
             </span>
           )}
       </h1>
+
       <div className={`flex flex-wrap gap-x-4 ${settings.headerStyle === 'center' ? 'justify-center' : 'justify-start'} text-sm opacity-90`}>
          {generalInfo.address && <span>{generalInfo.address}</span>}
          {generalInfo.phone && <span>{generalInfo.phone}</span>}
