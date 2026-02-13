@@ -20,7 +20,7 @@ const InfoModal = ({ isOpen, onClose }) => {
           </h3>
           <button
             onClick={onClose}
-            className="p-1 text-gray-400 cursor-pointer hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-1 text-gray-400 cursor-pointer hover:text-red-600 hover:bg-gray-100 rounded-full transition-colors"
           >
             <X size={20} />
           </button>
