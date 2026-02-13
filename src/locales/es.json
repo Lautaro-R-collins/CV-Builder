@@ -59,7 +59,9 @@
         "fontSize": "Tamaño de Fuente",
         "xs": "Muy Pequeña",
         "sm": "Pequeña (Estándar)",
-        "base": "Normal"
+        "base": "Normal",
+        "layout": "Reordenar Secciones",
+        "dragHint": "Arrastra y suelta para reordenar"
     },
     "info": {
         "title": "¿Por qué el formato Harvard/ATS?",
