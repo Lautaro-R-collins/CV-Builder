@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, X, Check } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
@@ -15,6 +16,14 @@ const LanguageSwitcher = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    toast.success(t('toasts.languageChanged'), {
+      icon: '🌐',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
     setIsOpen(false);
   };
 
@@ -60,7 +69,7 @@ const LanguageSwitcher = () => {
                 <button
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code)}
-                  className={`w-full flex items-center justify-between p-4 rounded-xl transition-all ${
+                  className={`w-full flex items-center cursor-pointer justify-between p-4 rounded-xl transition-all ${
                     i18n.language.startsWith(lang.code)
                       ? 'bg-blue-50 text-blue-700 border-2 border-blue-200 font-semibold'
                       : 'hover:bg-gray-50 text-gray-700 border-2 border-transparent'

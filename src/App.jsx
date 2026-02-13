@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Download, Eye, Edit3 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import toast, { Toaster } from 'react-hot-toast';
 import CV from './components/CV/CV';
 import SideBar from './components/CV/SideBar';
 import { CVProvider } from './context/CVContext';
@@ -16,6 +17,18 @@ function App() {
     contentRef: componentRef,
     documentTitle: 'My_CV',
   });
+
+  const handleDownload = () => {
+    toast.success(t('toasts.downloadStarted'), {
+      icon: '📄',
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
+    handlePrint();
+  };
 
   return (
     <CVProvider>
@@ -41,7 +54,7 @@ function App() {
            <div className="fixed top-8 right-8 flex items-center gap-4 z-20 print:hidden">
               <LanguageSwitcher />
               <button
-                onClick={() => handlePrint()}
+                onClick={handleDownload}
                 className="flex cursor-pointer items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all transform hover:scale-105 font-medium"
               >
                 <Download size={20} />
@@ -74,6 +87,7 @@ function App() {
             </>
           )}
         </button>
+        <Toaster position="bottom-right" />
       </div>
     </CVProvider>
   );
