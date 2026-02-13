@@ -52,6 +52,7 @@ export const initialState = {
         headerColor: '#000000',
         headerStyle: 'center', // center, left
         fontSize: 'sm', // xs, sm, base
+        sectionOrder: ['education', 'experience', 'skills', 'courses', 'languages'],
     },
 };
 
